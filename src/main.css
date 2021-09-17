@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap&&family=Patrick+Hand&display=swap');
+
+html, body {
+    height : 100%;
+    background-color: #F0EAE2;
+    margin : 0;
+    font-family: 'Bebas Neue';
+}
+
+#title {
+    color : #995756;
+    font-size: 50px;
+    padding-left : 10px;
+    margin-top : 5%;
+    margin-left: 3%;
+}
+
+main {
+    margin-left: 7%;
+}
+
+#date {
+    font-size: 20px;
+}
+
+#list {
+    display : grid;
+    grid-template-columns: 10% 90%;
+    align-items: baseline;
+    font-size: 17px;
+    font-family: 'Patrick Hand';
+    list-style: none;
+    width : 90%;
+    padding-left : 5%;
+}
+
+li {
+    padding-top: 2%;
+    padding-bottom : 2%;
+    border-bottom: 1px solid black;
+}
+
+footer {
+    display:flex;
+    position: fixed;
+    bottom: 5%;
+    width:100%;
+    justify-content: center;
+}
+
+input[type="text"]{
+    width: 70%;
+    padding: 1%;
+    font-family: 'Patrick Hand';
+    font-size: 17px;
+}
