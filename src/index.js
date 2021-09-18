@@ -1,3 +1,3 @@
 import './main.css';
-
-console.log("Bundled");
+import {DomModule} from "./DomModule.js";
+DomModule.init();
