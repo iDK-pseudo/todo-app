@@ -44,7 +44,7 @@ export const DomModule = (function () {
     function renderEmptyMessages(){
         const main = document.querySelector("main"),
         emptyMsgPart1 = _createElement("p",{class:"empty-msg",textContent:"Aww.. Feels empty."}),
-        emptyMsgPart2 = _createElement("p",{class:"empty-msg",textContent:"Why don't you add something by using the field below ?"});
+        emptyMsgPart2 = _createElement("p",{class:"empty-msg",textContent:"Why don't you add a task ?"});
         main.append(emptyMsgPart1,emptyMsgPart2);
         body.appendChild(main);
     }
