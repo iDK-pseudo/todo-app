@@ -1,14 +1,19 @@
-export const TodoModule = (function () {
-    let todoList = [];
+export const TaskModule = (function () {
+    let taskMap = new Map();
 
-    function addNewTodo (title){
-        todoList.push({title});
-        console.log(todoList);
+    function addNewTask (dateid,title){
+        if(!taskMap.get(dateid)){
+            taskMap.set(dateid,[]);
+        }
+        taskMap.get(dateid).push({title});
     }
 
-    function getTodoList(){
-        return todoList;
+    function getTaskMap(){
+        return taskMap;
     }
 
-    return {addNewTodo,getTodoList};
+    return {
+        addNewTask,
+        getTaskMap
+    };
 })();

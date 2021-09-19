@@ -1,6 +1,12 @@
+import { MainModule } from "./index.js";
+import { format, parseISO } from "date-fns";
+
 export const DomModule = (function () {
+    let body = null, _existingList = null;
     function init(){
+        body = document.querySelector("body");
         _renderEmptyMainPage();
+        _bindUIActions();
     }
 
     function _renderEmptyMainPage() {
@@ -12,7 +18,7 @@ export const DomModule = (function () {
         header.appendChild(h1)
         fragment.appendChild(header);
 
-        //Main
+        //Main with emtpy messages
         const main = _createElement("main"),
         emptyMsgPart1 = _createElement("p",{class:"empty-msg",textContent:"Aww.. Feels empty."}),
         emptyMsgPart2 = _createElement("p",{class:"empty-msg",textContent:"Why don't you add something by using the field below ?"});
@@ -24,7 +30,6 @@ export const DomModule = (function () {
         input = _createElement("input",{id: "userinput", type: "text", placeholder: "What's on your mind ?"});
         footer.appendChild(input);
         fragment.appendChild(footer);
-        const body = document.querySelector("body");
         body.appendChild(fragment);
     }
 
@@ -38,5 +43,67 @@ export const DomModule = (function () {
         }
         return domElement;
     }
-    return {init}
+
+    function _bindUIActions(){
+        const userInput = document.getElementById("userinput");
+        userInput.addEventListener("keydown",(event)=>{
+            if(event.key === "Enter"){
+                if(event.target.value!=""){
+                    MainModule.handleNewTask(event.target.value);
+                }
+                event.target.value = "";
+            }
+        })
+    }
+
+    function clearEmptyMsg(){
+        const main = document.querySelector("main");
+        while(main.firstChild && main.firstChild.getAttribute("class") === "empty-msg"){
+            main.removeChild(main.firstChild);
+        }
+    }
+
+    function isListWithDateIdPresent(dateid){
+        _existingList = document.querySelector(`ul[date-id='${dateid}']`);
+        return Boolean(_existingList);
+    }
+
+    function renderTasks(action,taskMap){
+        const main = document.querySelector("main");
+        if(action === "new"){
+            const fragment = new DocumentFragment();
+            
+            //Iterating each date
+            taskMap.forEach(function (value,key){
+                const displayDate = format(parseISO(key),"d MMM''yy"), //Parsing and Formatting the Display Date from the Key
+                date = _createElement("p",{textContent : displayDate, id:"date"}), //Making new <p> for displaying date at top
+                list = _createElement("ul",{id: "list","date-id": key}); //<ul> with date-id attribute
+                
+                //Iterating each task, making DOM for it and appending it to the list
+                value.forEach(function(task){   
+                    const checkbox = _createElement("input",{type: "checkbox"}),
+                    listItem = _createElement("li",{textContent : task.title});
+                    list.append(checkbox,listItem);
+                })
+                fragment.append(date,list);
+            });
+            main.appendChild(fragment);
+        }else if(action === "append"){
+            let selectedId = _existingList.getAttribute("date-id"),
+            taskArray = taskMap.get(selectedId),
+            newTask = taskArray[taskArray.length-1];
+
+            //Make new task DOM and append it to the existing list present
+            const checkbox = _createElement("input",{type: "checkbox"}),
+            listItem = _createElement("li",{textContent : newTask.title});
+            _existingList.append(checkbox,listItem);
+        }
+    }
+
+    return {
+        init,
+        clearEmptyMsg,
+        isListWithDateIdPresent,
+        renderTasks
+    }
 })();
