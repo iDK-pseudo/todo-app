@@ -24,8 +24,9 @@ export const DomModule = (function () {
  
         //Footer
         const footer = _createElement("footer"),
-        input = _createElement("input",{id: "userinput", type: "text", placeholder: "What's on your mind ?"});
-        footer.appendChild(input);
+        button = _createElement("button",{id: "new-task-btn", textContent: "New"}),
+        input = _createElement("input",{id: "userinput", type: "text", placeholder: "Write here for instant creation"});
+        footer.append(button,input);
         fragment.appendChild(footer);
         body.appendChild(fragment);
     }
@@ -50,6 +51,7 @@ export const DomModule = (function () {
     }
 
     function _bindUIActions(){
+        //Instant New Task
         const userInput = document.getElementById("userinput");
         userInput.addEventListener("keydown",(event)=>{
             if(event.key === "Enter"){
@@ -59,7 +61,11 @@ export const DomModule = (function () {
                 event.target.value = "";
             }
         })
-    }
+
+        //New Task with Form
+        const newTaskBtn = document.getElementById("new-task-btn");
+        newTaskBtn.addEventListener("click",MainModule.handleNewTaskWithForm);
+    }  
 
     function clearEmptyMsg(){
         const main = document.querySelector("main");
@@ -105,11 +111,32 @@ export const DomModule = (function () {
         }
     }
 
+    function clearPageAndRenderForm(){
+        //Clear Page
+        while(body.lastChild.tagName !== "HEADER"){
+            body.removeChild(body.lastChild);
+        }
+
+        //Render Form
+        const form = _createElement("form"),
+        br = _createElement("br"),
+        titleInput = _createElement("input",{class:"form-input", type:"text", placeholder:"Title"}),
+        descInput = _createElement("textarea",{class:"form-input", type:"text", placeholder:"Description", rows : "5"}),
+        p = _createElement("p",{id: "choose-priority",textContent: "Choose Priority"}),
+        highPriorityBtn = _createElement("button",{type:"button",class:"form-button", id:"high-priority",textContent:"High"}),
+        mediumPriorityBtn = _createElement("button",{type:"button",class:"form-button", id:"medium-priority",textContent:"Medium"}),
+        lowPriorityBtn = _createElement("button",{type:"button", class:"form-button", id:"low-priority",textContent:"Low"}),
+        submitBtn = _createElement("button",{type:"submit", class:"form-button", id:"submit-btn",textContent:"Submit"});
+        form.append(titleInput,br,descInput,br,p,highPriorityBtn,mediumPriorityBtn,lowPriorityBtn,submitBtn);
+        body.appendChild(form);
+    }
+
     return {
         init,
         renderEmptyMessages,
         clearEmptyMsg,
         isListWithDateIdPresent,
-        renderTasks
+        renderTasks,
+        clearPageAndRenderForm
     }
 })();

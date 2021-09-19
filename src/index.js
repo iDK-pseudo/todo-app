@@ -33,6 +33,10 @@ export const MainModule = (function () {
         }
         
     }
-    return {init,handleNewTask};
+
+    function handleNewTaskWithForm(){
+        DomModule.clearPageAndRenderForm();
+    }
+    return {init,handleNewTask,handleNewTaskWithForm};
 })();
 MainModule.init();

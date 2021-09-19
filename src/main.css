@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap&&family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap&&family=Patrick+Hand&display=swap&&family=PT+Sans:wght@700&display=swap');
 
 html, body {
     height : 100%;
     background-color: #eccea5;
     margin : 0;
-    font-family: 'Bebas Neue';
 }
 
 #title {
@@ -13,6 +12,7 @@ html, body {
     padding-left : 10px;
     margin-top : 3%;
     margin-left: 3%;
+    font-family: 'Bebas Neue';
 }
 
 main {
@@ -26,6 +26,7 @@ main {
 
 #date {
     font-size: 25px;
+    font-family: 'Bebas Neue';
 }
 
 #list {
@@ -56,9 +57,95 @@ footer {
     justify-content: center;
 }
 
-input[type="text"]{
+#userinput{
     width: 70%;
     padding: 2%;
-    font-family: 'Patrick Hand';
+    font-family: 'Patrick Hand',cursive;
     font-size: 20px;
 }
+
+#new-task-btn{
+    background-color: palevioletred;
+    color : white;
+    font-family: 'Patrick Hand',cursive;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 2%;
+    width: 20%;
+    box-shadow: 1px 1px;
+}
+
+form {
+    margin-left: 7%;
+    background-color: palevioletred;
+    padding: 3%;
+    height: auto;
+    width: 75%;
+    border: 2px solid white;
+    box-shadow: 2px 2px 8px;
+}
+
+.form-input{
+    margin-bottom: 10%;
+    font-family: 'Patrick Hand',cursive;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 3%;
+    width: 90%;
+}
+
+#choose-priority{
+    font-family: 'Patrick Hand',cursive;
+    font-weight: bold;
+    font-size: 20px;
+    color: white
+}
+
+.form-button{
+    margin-right:2%;
+    font-size: 20px;
+    font-family: 'Patrick Hand',cursive;
+    font-weight: bold;
+    padding: 2%;
+    width: 30%;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#high-priority{
+    border : 3px solid #f44336;
+}
+
+
+#high-priority:hover{
+    background-color: #f44336;
+    color: white; 
+}
+
+#medium-priority{
+    border : 3px solid #ffdf00;
+}
+
+#medium-priority:hover{
+    background-color: #ffdf00;
+    color:white;
+}
+
+#low-priority{
+    border : 3px solid #008CBA;
+}
+
+#low-priority:hover{
+    background-color: #008CBA;
+    color: white;
+}
+
+#submit-btn{
+    width: 100%;
+    margin-top: 30%;
+    padding: 5%;
+    font-size: 20px;
+    color:white;
+    background-color: #a94064;
+}   
