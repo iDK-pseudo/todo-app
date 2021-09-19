@@ -9,6 +9,12 @@ export const MainModule = (function () {
     function init(){
         dateId = format(new Date(), "yyyyMMdd");
         DomModule.init();
+        TaskModule.init();
+        if(TaskModule.getTaskMap().size){
+            DomModule.renderTasks("new",TaskModule.getTaskMap());
+        }else{
+            DomModule.renderEmptyMessages();
+        }
     }
 
     function handleNewTask(value){

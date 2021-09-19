@@ -1,11 +1,18 @@
 export const TaskModule = (function () {
     let taskMap = new Map();
 
+    function init(){
+        if(localStorage.getItem("taskMap")){
+            taskMap = new Map(JSON.parse(localStorage.getItem("taskMap")));
+        }
+    }
+
     function addNewTask (dateid,title){
         if(!taskMap.get(dateid)){
             taskMap.set(dateid,[]);
         }
         taskMap.get(dateid).push({title});
+        localStorage.setItem("taskMap",JSON.stringify(Array.from(taskMap.entries())));
     }
 
     function getTaskMap(){
@@ -13,6 +20,7 @@ export const TaskModule = (function () {
     }
 
     return {
+        init,
         addNewTask,
         getTaskMap
     };

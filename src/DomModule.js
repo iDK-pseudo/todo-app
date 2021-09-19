@@ -5,11 +5,11 @@ export const DomModule = (function () {
     let body = null, _existingList = null;
     function init(){
         body = document.querySelector("body");
-        _renderEmptyMainPage();
+        _renderBasicLayout();
         _bindUIActions();
     }
 
-    function _renderEmptyMainPage() {
+    function _renderBasicLayout() {
         const fragment = new DocumentFragment();
 
         //Header
@@ -18,11 +18,8 @@ export const DomModule = (function () {
         header.appendChild(h1)
         fragment.appendChild(header);
 
-        //Main with emtpy messages
-        const main = _createElement("main"),
-        emptyMsgPart1 = _createElement("p",{class:"empty-msg",textContent:"Aww.. Feels empty."}),
-        emptyMsgPart2 = _createElement("p",{class:"empty-msg",textContent:"Why don't you add something by using the field below ?"});
-        main.append(emptyMsgPart1,emptyMsgPart2);
+        //Main
+        const main = _createElement("main");
         fragment.appendChild(main);
  
         //Footer
@@ -42,6 +39,14 @@ export const DomModule = (function () {
             domElement.setAttribute(key,props[key]);
         }
         return domElement;
+    }
+
+    function renderEmptyMessages(){
+        const main = document.querySelector("main"),
+        emptyMsgPart1 = _createElement("p",{class:"empty-msg",textContent:"Aww.. Feels empty."}),
+        emptyMsgPart2 = _createElement("p",{class:"empty-msg",textContent:"Why don't you add something by using the field below ?"});
+        main.append(emptyMsgPart1,emptyMsgPart2);
+        body.appendChild(main);
     }
 
     function _bindUIActions(){
@@ -102,6 +107,7 @@ export const DomModule = (function () {
 
     return {
         init,
+        renderEmptyMessages,
         clearEmptyMsg,
         isListWithDateIdPresent,
         renderTasks
