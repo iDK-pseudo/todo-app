@@ -19,24 +19,27 @@ export const MainModule = (function () {
 
     function handleNewTask(value){
         TaskModule.addNewTask(dateId,value);
-        DomModule.clearEmptyMsg();
-
-        /*
-        Check if List with Date ID already present in the DOM
-            1. If yes, append the new task
-            2. If no, render a new list with all the tasks
-        */
+        DomModule.clearEmptyMsg();   
         if(DomModule.isListWithDateIdPresent(dateId)){
             DomModule.renderTasks("append",TaskModule.getTaskMap());
         }else {
             DomModule.renderTasks("new",TaskModule.getTaskMap());
         }
-        
     }
 
-    function handleNewTaskWithForm(){
-        DomModule.clearPageAndRenderForm();
+    function handleNewTaskWithFormData(title,desc,priority){
+        TaskModule.addNewTask(dateId,title,desc,priority);
+        DomModule.clearEmptyMsg();
+        if(DomModule.isListWithDateIdPresent(dateId)){
+            DomModule.renderTasks("append",TaskModule.getTaskMap());
+        }else {
+            DomModule.renderTasks("new",TaskModule.getTaskMap());
+        }
     }
-    return {init,handleNewTask,handleNewTaskWithForm};
+    return {
+        init,
+        handleNewTask,
+        handleNewTaskWithFormData
+    };
 })();
 MainModule.init();

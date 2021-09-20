@@ -7,11 +7,11 @@ export const TaskModule = (function () {
         }
     }
 
-    function addNewTask (dateid,title){
+    function addNewTask (dateid,title,desc,priority){
         if(!taskMap.get(dateid)){
             taskMap.set(dateid,[]);
         }
-        taskMap.get(dateid).push({title});
+        taskMap.get(dateid).push({title,desc,priority});
         localStorage.setItem("taskMap",JSON.stringify(Array.from(taskMap.entries())));
     }
 

@@ -64,7 +64,7 @@ export const DomModule = (function () {
 
         //New Task with Form
         const newTaskBtn = document.getElementById("new-task-btn");
-        newTaskBtn.addEventListener("click",MainModule.handleNewTaskWithForm);
+        newTaskBtn.addEventListener("click",_clearPageAndRenderForm);
     }  
 
     function clearEmptyMsg(){
@@ -73,6 +73,12 @@ export const DomModule = (function () {
             main.removeChild(main.firstChild);
         }
     }
+
+    /*  isListWithDateIdPresent() -
+        Check if List with Date ID already present in the DOM
+        1. If yes, append the new task
+        2. If no, render a new list with all the tasks
+    */
 
     function isListWithDateIdPresent(dateid){
         _existingList = document.querySelector(`ul[date-id='${dateid}']`);
@@ -111,24 +117,44 @@ export const DomModule = (function () {
         }
     }
 
-    function clearPageAndRenderForm(){
+    function _clearPageAndRenderForm(){
         //Clear Page
         while(body.lastChild.tagName !== "HEADER"){
             body.removeChild(body.lastChild);
         }
 
         //Render Form
-        const form = _createElement("form"),
+        const form = _createElement("form",{method: "post"}),
         br = _createElement("br"),
         titleInput = _createElement("input",{class:"form-input", type:"text", placeholder:"Title"}),
         descInput = _createElement("textarea",{class:"form-input", type:"text", placeholder:"Description", rows : "5"}),
         p = _createElement("p",{id: "choose-priority",textContent: "Choose Priority"}),
-        highPriorityBtn = _createElement("button",{type:"button",class:"form-button", id:"high-priority",textContent:"High"}),
-        mediumPriorityBtn = _createElement("button",{type:"button",class:"form-button", id:"medium-priority",textContent:"Medium"}),
-        lowPriorityBtn = _createElement("button",{type:"button", class:"form-button", id:"low-priority",textContent:"Low"}),
+        radioHighPriority = _createElement("input",{type: "radio",id: "high-priority", name: "priority"}),
+        labelHighPriority = _createElement("label",{for: "high-priority",textContent: "High"}),
+        radioMedPriority = _createElement("input",{type: "radio",id: "medium-priority", name: "priority"}),
+        labelMedPriority = _createElement("label",{for: "medium-priority",textContent: "Medium"}),
+        radioLowPriority = _createElement("input",{type: "radio",id: "low-priority", name: "priority"}),
+        labelLowPriority = _createElement("label",{for: "low-priority",textContent: "Low"}),
         submitBtn = _createElement("button",{type:"submit", class:"form-button", id:"submit-btn",textContent:"Submit"});
-        form.append(titleInput,br,descInput,br,p,highPriorityBtn,mediumPriorityBtn,lowPriorityBtn,submitBtn);
+        form.append(titleInput,br,descInput,br,p,radioHighPriority,labelHighPriority,radioMedPriority,labelMedPriority,radioLowPriority,labelLowPriority,submitBtn);
+        form.addEventListener("submit",_handleFormSubmission);
         body.appendChild(form);
+    }
+
+    function _handleFormSubmission(event){
+        let priority = null;
+        const form = event.target,
+        title = form.elements[0].value,
+        desc = form.elements[1].value;
+        if(form.elements[2].checked){
+            priority = "high"
+        }else if(form.elements[3].checked){
+            priority = "medium"
+        }else{
+            priority = "low"
+        }
+        event.preventDefault();
+        MainModule.handleNewTaskWithFormData(title,desc,priority);
     }
 
     return {
@@ -136,7 +162,6 @@ export const DomModule = (function () {
         renderEmptyMessages,
         clearEmptyMsg,
         isListWithDateIdPresent,
-        renderTasks,
-        clearPageAndRenderForm
+        renderTasks
     }
 })();
