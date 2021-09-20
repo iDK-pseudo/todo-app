@@ -29,6 +29,7 @@ export const MainModule = (function () {
 
     function handleNewTaskWithFormData(title,desc,priority){
         TaskModule.addNewTask(dateId,title,desc,priority);
+        DomModule.init();
         if(DomModule.isListWithDateIdPresent(dateId)){
             DomModule.renderTasks("append",TaskModule.getTaskMap());
         }else {

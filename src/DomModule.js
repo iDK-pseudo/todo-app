@@ -5,6 +5,7 @@ export const DomModule = (function () {
     let body = null, _existingList = null;
     function init(){
         body = document.querySelector("body");
+        body.innerHTML = "";
         _renderBasicLayout();
         _bindUIActions();
     }
@@ -51,6 +52,12 @@ export const DomModule = (function () {
     }
 
     function _bindUIActions(){
+        //Clicking title will render Home Page
+        const title = document.getElementById("title");
+        title.addEventListener("click",()=>{
+            MainModule.init();
+        })
+
         //Instant New Task
         const userInput = document.getElementById("userinput");
         userInput.addEventListener("keydown",(event)=>{
