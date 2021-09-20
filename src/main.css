@@ -17,6 +17,8 @@ html, body {
 
 main {
     margin-left: 7%;
+    max-height: 78%;
+    overflow-y: scroll;
 }
 
 .empty-msg{
@@ -52,7 +54,7 @@ li {
 footer {
     display:flex;
     position: fixed;
-    bottom: 5%;
+    bottom: 1%;
     width:100%;
     justify-content: center;
 }
