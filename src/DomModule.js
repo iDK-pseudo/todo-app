@@ -126,8 +126,8 @@ export const DomModule = (function () {
         //Render Form
         const form = _createElement("form",{method: "post"}),
         br = _createElement("br"),
-        titleInput = _createElement("input",{class:"form-input", type:"text", placeholder:"Title"}),
-        descInput = _createElement("textarea",{class:"form-input", type:"text", placeholder:"Description", rows : "5"}),
+        titleInput = _createElement("input",{class:"form-input", type:"text", placeholder:"Title",required: ""}),
+        descInput = _createElement("textarea",{class:"form-input", type:"text", placeholder:"Description", rows : "5",required: ""}),
         p = _createElement("p",{id: "choose-priority",textContent: "Choose Priority"}),
         radioHighPriority = _createElement("input",{type: "radio",id: "high-priority", name: "priority"}),
         labelHighPriority = _createElement("label",{for: "high-priority",textContent: "High"}),
