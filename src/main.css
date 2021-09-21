@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap&&family=Patrick+Hand&display=swap&&family=PT+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family: Futura;
+    src: url(futura-pt-book.otf);
+}
 
 html, body {
     height : 100%;
@@ -22,7 +27,7 @@ main {
 }
 
 .empty-msg{
-    font-family: 'Patrick Hand',cursive;
+    font-family: Futura,sans-serif;
     font-size: 20px;
 }
 
@@ -36,7 +41,7 @@ main {
     grid-template-columns: 10% 90%;
     align-items: baseline;
     font-size: 20px;
-    font-family: 'Patrick Hand',cursive;
+    font-family: Futura,sans-serif;
     list-style: none;
     width : 90%;
     padding-left : 5%;
@@ -45,10 +50,22 @@ main {
 li {
     padding-top: 2%;
     padding-bottom : 2%;
-    padding-left: 2%;
+    padding-left: 5%;
     margin-bottom: 2%;
-    background-color:rgb(250 250 248 / 31%);
-    border-bottom: 1px solid black;
+    background-color:rgb(250 250 248 / 80%);
+    box-shadow: 5px 10px 8px hsl(0deg 0% 0% / 0.2);
+}
+
+li[priority="high"]{
+    border-left : 7px solid #f44336;
+}
+
+li[priority="medium"]{
+    border-left : 7px solid #ffdf00;
+}
+
+li[priority="low"]{
+    border-left : 7px solid #008CBA;
 }
 
 footer {
@@ -62,14 +79,14 @@ footer {
 #userinput{
     width: 70%;
     padding: 2%;
-    font-family: 'Patrick Hand',cursive;
+    font-family: Futura,sans-serif;
     font-size: 20px;
 }
 
 #new-task-btn{
     background-color: palevioletred;
     color : white;
-    font-family: 'Patrick Hand',cursive;
+    font-family: Futura,sans-serif;
     font-weight: bold;
     font-size: 20px;
     margin-right: 2%;
@@ -89,17 +106,17 @@ form {
 
 .form-input{
     margin-bottom: 10%;
-    font-family: 'Patrick Hand',cursive;
+    font-family: Futura,sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 22px;
     padding: 3%;
     width: 90%;
 }
 
 #choose-priority{
-    font-family: 'Patrick Hand',cursive;
+    font-family: Futura,sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 22px;
     color: white
 }
 
@@ -110,10 +127,10 @@ input[type="radio"]{
 input[type="radio"] ~ label{
     border: 2px solid white;
     font-size: 20px;
-    font-family: 'Patrick Hand',cursive;
+    font-family: Futura,sans-serif;
     font-weight: bold;
     padding: 2% 8% 2% 8%;
-    margin-left: 3%;
+    margin-left: 1.5%;
     background-color: white;
 }
 
@@ -140,6 +157,6 @@ input[type="radio"] ~ label{
     color:white;
     background-color: #a94064;
     font-size: 20px;
-    font-family: 'Patrick Hand',cursive;
+    font-family: Futura,sans-serif;
     font-weight: bold;
 }   

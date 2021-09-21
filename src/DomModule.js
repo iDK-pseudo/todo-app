@@ -106,7 +106,7 @@ export const DomModule = (function () {
                 //Iterating each task, making DOM for it and appending it to the list
                 value.forEach(function(task){   
                     const checkbox = _createElement("input",{type: "checkbox"}),
-                    listItem = _createElement("li",{textContent : task.title});
+                    listItem = _createElement("li",{textContent : task.title,priority:task.priority});
                     list.append(checkbox,listItem);
                 })
                 fragment.append(date,list);
