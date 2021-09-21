@@ -22,7 +22,7 @@ html, body {
 
 main {
     margin-left: 7%;
-    max-height: 78%;
+    max-height: 76%;
     overflow-y: scroll;
 }
 
@@ -54,6 +54,7 @@ li {
     margin-bottom: 2%;
     background-color:rgb(250 250 248 / 80%);
     box-shadow: 5px 10px 8px hsl(0deg 0% 0% / 0.2);
+    border-radius: 4px;
 }
 
 li[priority="high"]{
@@ -78,9 +79,13 @@ footer {
 
 #userinput{
     width: 70%;
-    padding: 2%;
+    padding: 3%;
+    padding-left: 4%;
     font-family: Futura,sans-serif;
-    font-size: 20px;
+    font-size: 18px;
+    border:0px;
+    border-radius: 0px;
+    box-shadow: 1px 2px 4px hsl(0deg 0% 0% / 1);
 }
 
 #new-task-btn{
@@ -89,9 +94,10 @@ footer {
     font-family: Futura,sans-serif;
     font-weight: bold;
     font-size: 20px;
-    margin-right: 2%;
     width: 20%;
-    box-shadow: 1px 1px;
+    border:0px;
+    border-radius: 0px;
+    box-shadow: 1px 2px 1px hsl(0deg 0% 0% / 1);
 }
 
 form {
