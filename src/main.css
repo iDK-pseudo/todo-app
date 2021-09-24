@@ -18,11 +18,13 @@ html, body {
     margin-top : 3%;
     margin-left: 3%;
     font-family: 'Bebas Neue';
+    margin-bottom: 0;
 }
 
 main {
-    margin-left: 7%;
-    max-height: 76%;
+    padding-left: 5%;
+    padding-right: 1%;
+    max-height: 80%;
     overflow-y: scroll;
 }
 
@@ -52,20 +54,19 @@ li {
     padding-bottom : 3%;
     padding-left: 5%;
     margin-bottom: 2%;
-    background-color:rgb(250 250 248 / 80%);
+    background-color: #bd4f6c;
+    background-image: linear-gradient(326deg, #d17b92 0%, #d67155 74%);
     box-shadow: 5px 10px 8px hsl(0deg 0% 0% / 0.2);
+    color: white;
 }
 
 li[priority="high"]{
-    border-left : 7px solid #f44336;
 }
 
 li[priority="medium"]{
-    border-left : 7px solid #ffdf00;
 }
 
 li[priority="low"]{
-    border-left : 7px solid #008CBA;
 }
 
 input[type="checkbox"]{
@@ -73,7 +74,6 @@ input[type="checkbox"]{
     width: 20px;
     margin: 0;
     align-self: center;
-    box-shadow: 2px 4px 5px hsl(0deg 0% 0% / 0.5);
 }
 
 footer {
@@ -110,12 +110,11 @@ footer {
 
 form {
     margin-left: 7%;
-    background-color: palevioletred;
-    padding: 3%;
+    background-color: #eea594;
+    padding: 5%;
     height: auto;
     width: 75%;
-    border: 2px solid white;
-    box-shadow: 2px 2px 8px;
+    box-shadow: 3px 6px 20px hsl(0deg 0% 0% / 0.6);
 }
 
 .form-input{
@@ -123,15 +122,24 @@ form {
     font-family: Futura,sans-serif;
     font-weight: bold;
     font-size: 22px;
-    padding: 3%;
+    padding: 4%;
     width: 90%;
+    border-radius: 10px;
+    border: 0px;
+    outline: none;
+    background-color: #e6846f;
+    color: wheat
+}
+
+::placeholder{
+    color:#a94064;
 }
 
 #choose-priority{
     font-family: Futura,sans-serif;
     font-weight: bold;
-    font-size: 22px;
-    color: white
+    font-size: 25px;
+    color: #a94064;
 }
 
 input[type="radio"]{
@@ -146,6 +154,8 @@ input[type="radio"] ~ label{
     padding: 2% 8% 2% 8%;
     margin-left: 1.5%;
     background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 4px 5px hsl(0deg 0% 0% / 1);
 }
 
 #high-priority:checked + label{
@@ -173,4 +183,7 @@ input[type="radio"] ~ label{
     font-size: 20px;
     font-family: Futura,sans-serif;
     font-weight: bold;
+    border-radius: 30px;
+    box-shadow: 2px 4px 5px hsl(0deg 0% 0% / 1);
+    border: 0px;  
 }   
