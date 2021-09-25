@@ -21,8 +21,8 @@ html, body {
     font-family: 'Bebas Neue';
     margin-bottom: 2%;
     margin-left: 0; 
-    background-color: rgba(184, 54, 76, 0.747);
-    box-shadow: 0px 4px 10px hsl(0deg 0% 0% / 1);
+    background-color: rgba(184, 54, 76, 0.4);
+    box-shadow: 0px 4px 10px hsl(0deg 0% 0% / 0.4);
 }
 
 main {
@@ -84,14 +84,14 @@ input[type="checkbox"]{
 footer {
     display:flex;
     position: fixed;
-    bottom: 1%;
+    bottom: 1.5%;
     width:100%;
     justify-content: center;
 }
 
 #userinput{
     width: 68%;
-    padding: 3%;
+    padding: 2%;
     margin-right: 2%;
     font-family: Futura,sans-serif;
     font-size: 20px;
@@ -99,14 +99,14 @@ footer {
     border: 2px solid white;
     border-radius: 5px;
     box-shadow: 1px 2px 4px hsl(0deg 0% 0% / 1);
-    background-color: #e6846f;
+    background-color: #f1bfc7;
     outline: none;
-    color: wheat;
+    color: brown;
 }
 
 #userinput::placeholder{
-    color: wheat;
-    opacity: 0.8;
+    color: brown;
+    opacity: 0.7;
 }
 
 #new-task-btn{
