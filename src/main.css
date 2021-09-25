@@ -7,18 +7,22 @@
 
 html, body {
     height : 100%;
-    background-color: #eccea5;
+    background-color: #d9e4f5;
+    background-image: linear-gradient(315deg, #d9e4f5 0%, #f1bfc7 74%);
     margin : 0;
 }
 
 #title {
-    color : #995756;
+    color: white;
     font-size: 60px;
     padding-left : 10px;
     margin-top : 3%;
     margin-left: 3%;
     font-family: 'Bebas Neue';
-    margin-bottom: 0;
+    margin-bottom: 2%;
+    margin-left: 0; 
+    background-color: rgba(184, 54, 76, 0.747);
+    box-shadow: 0px 4px 10px hsl(0deg 0% 0% / 1);
 }
 
 main {
@@ -36,6 +40,7 @@ main {
 #date {
     font-size: 25px;
     font-family: 'Bebas Neue';
+    color: black;
 }
 
 #list {
@@ -85,34 +90,43 @@ footer {
 }
 
 #userinput{
-    width: 70%;
+    width: 68%;
     padding: 3%;
-    padding-left: 4%;
+    margin-right: 2%;
     font-family: Futura,sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    border:0px;
-    border-radius: 0px;
+    border: 2px solid white;
+    border-radius: 5px;
     box-shadow: 1px 2px 4px hsl(0deg 0% 0% / 1);
+    background-color: #e6846f;
+    outline: none;
+    color: wheat;
+}
+
+#userinput::placeholder{
+    color: wheat;
+    opacity: 0.8;
 }
 
 #new-task-btn{
-    background-color: palevioletred;
+    background-color: #a94064;
     color : white;
     font-family: Futura,sans-serif;
     font-weight: bold;
     font-size: 20px;
     width: 20%;
-    border:0px;
-    border-radius: 0px;
-    box-shadow: 1px 2px 1px hsl(0deg 0% 0% / 1);
+    border: 2px solid white;
+    border-radius: 5px;
+    box-shadow: 2px 4px 5px hsl(0deg 0% 0% / 1);
 }
 
 form {
     margin-left: 7%;
+    margin-top: 10%;
     background-color: #eea594;
     padding: 5%;
-    height: auto;
+    height: 70%;
     width: 75%;
     box-shadow: 3px 6px 20px hsl(0deg 0% 0% / 0.6);
 }
@@ -132,7 +146,8 @@ form {
 }
 
 ::placeholder{
-    color:#a94064;
+    color:wheat;
+    opacity: 0.6;
 }
 
 #choose-priority{
@@ -175,7 +190,7 @@ input[type="radio"] ~ label{
 
 #submit-btn{
     width: 100%;
-    margin-top: 30%;
+    margin-top: 40%;
     padding: 5%;
     font-size: 20px;
     color:white;

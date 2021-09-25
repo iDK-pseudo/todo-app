@@ -26,8 +26,8 @@ export const DomModule = (function () {
         //Footer
         const footer = _createElement("footer"),
         button = _createElement("button",{id: "new-task-btn", textContent: "New"}),
-        input = _createElement("input",{id: "userinput", type: "text", placeholder: "Write here for instant creation"});
-        footer.append(button,input);
+        input = _createElement("input",{id: "userinput", type: "text", placeholder: "Write here or click New"});
+        footer.append(input,button);
         fragment.appendChild(footer);
         body.appendChild(fragment);
     }
